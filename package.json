@@ -2,7 +2,7 @@
   "name": "task-list-app",
   "version": "1.0.0",
   "description": "Task List Application",
-  "homepage": "https://[your-username].github.io/[repo-name]",
+  "homepage": "https://soivigol.github.io/to-do",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
