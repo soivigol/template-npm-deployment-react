@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './'
+    publicPath: '/to-do/' // Update this to match your repository name
   },
   module: {
     rules: [
@@ -26,6 +26,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './src/favicon.ico' // Optional: if you have a favicon
     }),
   ],
   devServer: {
@@ -35,5 +36,5 @@ module.exports = {
     port: 3000,
     hot: true,
     historyApiFallback: true
-  },
+  }
 };
