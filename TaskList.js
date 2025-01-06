@@ -1,6 +1,5 @@
 // TaskList.js
 const { useState } = React;
-const { Trash2 } = lucide;
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
@@ -22,6 +21,17 @@ const TaskList = () => {
 
     const deleteTask = (taskId) => {
         setTasks(tasks.filter(task => task.id !== taskId));
+    };
+
+    // Create trash icon element using Lucide
+    const createTrashIcon = () => {
+        const trashIcon = document.createElement('i');
+        lucide.createIcons({
+            icons: {
+                'trash-2': trashIcon
+            }
+        });
+        return trashIcon;
     };
 
     return (
@@ -65,9 +75,9 @@ const TaskList = () => {
                         </div>
                         <button
                             onClick={() => deleteTask(task.id)}
-                            className="text-red-500 hover:text-red-700 focus:outline-none"
+                            className="text-red-500 hover:text-red-700 focus:outline-none p-1"
                         >
-                            <Trash2 size={18} />
+                            <i data-lucide="trash-2" className="w-5 h-5"></i>
                         </button>
                     </li>
                 ))}
