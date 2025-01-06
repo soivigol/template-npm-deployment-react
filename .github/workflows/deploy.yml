@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -22,15 +22,23 @@ jobs:
 
       - name: Clean install dependencies
         run: |
-          npm install
+          echo "Installing dependencies..."
+          npm install --verbose
+          echo "Creating git config..."
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+          echo "Adding package-lock.json..."
           git add package-lock.json
+          echo "Committing changes..."
           git commit -m "Add package-lock.json" || echo "No changes to commit"
+          echo "Pushing changes..."
           git push origin main || echo "No changes to push"
 
       - name: Build
-        run: npm run build
+        run: |
+          echo "Starting build process..."
+          npm run build
+          echo "Build completed"
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
