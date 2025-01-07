@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const App = () => {
   const [prompt, setPrompt] = useState('');
@@ -49,25 +49,8 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Micro App Generator</h1>
-      <textarea
-        value={prompt}
-        onChange={handlePromptChange}
-        placeholder="Enter a prompt"
-        cols="50"
-        rows="4"
-      />
-      <button onClick={handleSubmit}>Generate Code</button>
-      <textarea
-        value={code}
-        onChange={handleTextareaChange}
-        placeholder="Generated code"
-        cols="50"
-        rows="10"
-      />
-      <button onClick={handleCommit}>Commit to GitHub</button>
-      {response && <p>{response}</p>}
+    <div className="min-h-screen bg-gray-100 py-8">
+      <p>Hello world</p>
     </div>
   );
 };
